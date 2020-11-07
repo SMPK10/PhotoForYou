@@ -6,7 +6,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   <script>
+
   (function() {
+    //code Javascript qui permettra de vérifié que le script soit respécté
     "use strict"
     window.addEventListener("load", function() {
       var form = document.getElementById("form")
@@ -37,6 +39,7 @@
     </div>
 	
     <form oninput='motdepasse2.setCustomValidity(motdepasse2.value != motdepasse1.value ?  "Mot de passe non identique" : "")' id="form" action="envoie.php" method="POST" novalidate>
+      <!-- Champ pour le prénom -->
       <div class="form-group row">
         <div class="col-md-4 mb-3">
           <label for="prenom">Prénom</label>
@@ -46,15 +49,19 @@
           </div>
         </div>
       </div>
+
+      <!-- Champ pour le nom -->
       <div class="form-group row">
         <div class="col-md-4 mb-3">
           <label for="nom">Nom</label>
           <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre nom" required>
           <div class="invalid-feedback">
-            Les mots de passe ne sont pas identiques
+            Le champ nom est obligatoire
           </div>
         </div>
       </div>
+
+      <!-- Champ pour l'adresse mail -->
       <div class="form-group row">
         <div class="col-md-4 mb-3">
           <label for="email">Adresse électronique</label>
@@ -65,6 +72,8 @@
           </div>
         </div>
       </div>
+
+      <!-- Champ pour le mot de passe -->
       <div class="form-group row">
         <div class="col-md-4 mb-3">
           <label for="motDePasse1">Votre mot de passe</label>

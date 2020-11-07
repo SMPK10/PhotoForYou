@@ -6,6 +6,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   <script>
+  //code Javascript qui permettra de vérifié que le script soit respécté
   (function() {
     "use strict"
     window.addEventListener("load", function() {
@@ -35,21 +36,24 @@
 	  <p>Vous n'avez pas de compte? <a href="inscription.php">INSCRIVEZ-VOUS!</a></p>
     </div>
 	<form id="form" action="connect.php" method="POST" novalidate>
+    <!-- Champ pour l'adresse mail -->
 		<div class="form-group row">
         	<div class="col-md-4 mb-3">
           		<label for="emailuser">Email</label>
           		<input type="text" class="form-control" id="emailuser" name="emailuser" placeholder="Votre email" required>
           		<div class="invalid-feedback">
-            		Le champ prénom est obligatoire
+            		Le champ email est obligatoire
           		</div>
         	</div>
         </div>
+
+        <!-- Champ pour le mot de passe -->
         <div class="form-group row">
         	<div class="col-md-4 mb-3">
           		<label for="userpw">Mot de passe</label>
           		<input type="password" class="form-control" id="userpw" name="userpw" placeholder="Votre mot de passe" required>
           		<div class="invalid-feedback">
-           			Les mots de passe ne sont pas identiques
+           			Les mots de passe est obligatoire
           		</div>
         	</div>
       	</div>

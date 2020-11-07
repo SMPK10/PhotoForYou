@@ -1,28 +1,33 @@
 <?php
 require('login.php');
 
+// Récupération des information des champs de la page de connexion
 $emailuser = $_POST['emailuser'];
 $p = 0;
 
+// On récupère les données de l'utilisateur avec l'email
 $donnees = $base->prepare('SELECT IdUsers, EmailUsers, mdpUsers FROM users WHERE EmailUsers = :email');
 $resultat = array();
 $donnees->execute(array(':email'=>$emailuser));
+
+// on met les données dans la variables résultats
 foreach($donnees as $resultat){
 	echo '';
 }
+
+// S'il n'y à pas de résultat, la variabe p, qui sera utilisé plus tard, sera égale à 3.
+// Sinon, on compare le mot de passe de la page de connexion et le mot de passe dans la base de données
 if(!$resultat){
-	echo '';
+	$p = 3;
 }
 else{
 	$CorrectPassword = password_verify($_POST['userpw'], $resultat['mdpUsers']);
 }
-if(!$resultat)
-{
-	$p = 3;
-}
 
 else
 {
+	// Si le mot de passe est correcte, la variable p est égale à 1 et on identifie si l'utilisateur est un client ou un photographe
+	// Sinon, la variable p est égale à 2
 	if($CorrectPassword)
 	{
 		$p = 1;
@@ -37,7 +42,6 @@ else
 				$_SESSION['type']='client';
 			}
 		}
-	$donnees = $base->prepare('SELECT * FROM Users WHERE IdUsers = '.$resultat['IdUsers']);
 	}
 
 	else
@@ -69,6 +73,9 @@ else
       <hr class="my-4">
       <p>
       	<?php
+      	// Si p = 1, on affiche un message de bienvenue
+      	// Sinon, on affiche un message d'erreur qui explique ce qui va pas
+      	$donnees = $base->prepare('SELECT * FROM Users WHERE IdUsers = '.$resultat['IdUsers']);
       	if($p == 1){
       		$donnees->execute();
       		foreach($donnees as $name){

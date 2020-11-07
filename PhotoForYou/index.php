@@ -43,6 +43,7 @@
 		</div>
 		<?php
 		if(!isset($_SESSION['type'])){
+		// Ce jumbotron ne s'affichera que si la personne n'est pas connecté
 		?>
 		<div class="jumbotron ">
     		<p class="lead">Moins de temps à chercher. Plus de résultats.</p>
